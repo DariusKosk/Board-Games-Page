@@ -60,12 +60,15 @@ export default {
 
 <style>
 table {
-  width: 100%;
+  width: 80%;
   border-collapse: collapse;
   background-color: darkgray;
   opacity: 80%;
   font-family: Verdana;
   font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  margin:auto;
 
 }
 th, td {
@@ -79,7 +82,7 @@ th {
 html {
   width: 100%;
   height: 100%;
-  --s: 37px; /* control the size */
+  --s: 37px;
 
   --c: #0000, #282828 0.5deg 119.5deg, #0000 120deg;
   --g1: conic-gradient(from 60deg at 56.25% calc(425% / 6), var(--c));

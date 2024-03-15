@@ -50,7 +50,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: rgb(70,70,70);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1);
 }
 .social-card {
 
@@ -60,9 +60,8 @@
   align-items: center;
   justify-content: center;
   gap: 40px;
-  background: rgb(255, 255, 255);
+  background: rgb(70,70,70);
   padding: 20px 25px;
-  border-radius: 16px;
 }
 .Btn {
   width: 45px;
