@@ -1,31 +1,29 @@
-
 const express = require('express');
-const pool = require('./database');
-const cors = require('cors')
-
-const port = process.env.PORT || 3000;
+const pool = require('./database.js');
 const app = express();
-
-
-app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.listen(port, () => {
-    console.log("Server is listening to port " + port)
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
 
-
-app.get('', async(req, res) => {
+app.get('/api/boardgames', async (req, res) => {
     try {
-        console.log("A GET all request has arrived");
-        const a = await pool.query(
-            "SELECT * FROM b "
-        );
-        res.json(a.rows);
+        const { rows } = await pool.query('SELECT * FROM boardgames');
+        res.json(rows);
     } catch (err) {
-        console.error(err.message);
+        console.error(err);
     }
 });
 
-
-
+app.use((err) => {
+    console.error(err.stack);
+});

@@ -1,17 +1,22 @@
 <template>
-  <HelloWorld msg="Welcome"/>
-  <p>MUEHEHEHEHHEHEHEHEHE</p>
+  <div>
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/">Main Page</router-link>
+    </nav>
+    <router-view />
+    <AppFooter />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppFooter from "./components/AppFooter.vue";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    AppFooter,
+  },
+};
 </script>
 
 <style>
@@ -21,6 +26,24 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+nav {
+  padding: 30px;
+}
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+nav a.router-link-exact-active {
+  color: #42b983;
+}
+button{
+  border-radius: 36px;
+  background: #FEE996;
+  border:0;
+  font-weight: 700;
+  font-size: 0.8em;
+  padding: 10px 16px;
+  letter-spacing: 2px;
 }
 </style>

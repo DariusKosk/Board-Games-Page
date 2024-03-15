@@ -10,13 +10,13 @@ const pool = new Pool({
 const execute = async (createBGTable, insertBGInfo, createUsersTable, insertUsersInfo,createRelationTable,insertRelations) => {
     try {
         await pool.connect();
+        await pool.query("DROP TABLE IF EXISTS user_boardgame");
         await pool.query("DROP TABLE IF EXISTS boardgames");
         await pool.query(createBGTable);
         await pool.query("DROP TABLE IF EXISTS users");
         await pool.query(createUsersTable);
         await pool.query(insertBGInfo);
         await pool.query(insertUsersInfo);
-        await pool.query("DROP TABLE IF EXISTS user_boardgame");
         await pool.query(createRelationTable);
         await pool.query(insertRelations);
         return true;
@@ -29,7 +29,7 @@ const execute = async (createBGTable, insertBGInfo, createUsersTable, insertUser
 const createBGTable = `
     CREATE TABLE IF NOT EXISTS "boardgames" (
         "id" SERIAL PRIMARY KEY,
-        "name" VARCHAR(200) NOT NULL,
+        "name" VARCHAR(200) UNIQUE NOT NULL,
         "imagepaths" TEXT[],
         "tags" TEXT[],
         "ratings" INTEGER[],
