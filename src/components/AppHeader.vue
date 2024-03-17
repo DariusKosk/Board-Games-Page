@@ -1,5 +1,7 @@
 <template>
     <header class="header">
+      <img src="../assets/BGPals_logo.png" alt="BGPals_logo" class="BGPals_logo">
+     <div class ="left_buttons">
       <div class="drop-down-button">
         <button class="button">Menu&nbsp; ▼</button>
         <div class="dropdown-content">
@@ -10,7 +12,10 @@
       </div>
       <a class="button" href="./">Main Page</a>
       <a class="button" href="./Profile">Profile</a>
-
+     </div>
+      <div class ="right_buttons">
+        <a class="button" href="./About">About</a>
+      </div>
     </header>
 </template>
 
@@ -21,18 +26,29 @@
 
 <style scoped>
 .header {
-  z-index: 1;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  flex: 0 1 auto;
   padding: 0.5em;
   background-color: rgb(69, 69, 69);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
   opacity: 80%;
-  justify-content: center;
-  gap:20px;
+  gap: 20px;
+}
+.left_buttons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  opacity: 80%;
+  gap: 20px;
+}
+.right_buttons {
+  align-items: flex-end;
+  margin-right: 20px;
+  opacity: 80%;
+  gap: 20px;
+  margin-left:auto;
 }
 .drop-down-button {
   position: relative;
@@ -98,4 +114,8 @@
   display: block;
 }
 
+.BGPals_logo{
+  width: 5%;
+  flex: 0 0 auto;
+}
 </style>

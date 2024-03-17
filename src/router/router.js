@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import MainPage from "../views/MainPage.vue";
 import ProfilePage from "../views/ProfilePage.vue";
+import AboutPage from "../views/AboutPage.vue";
 
 const routes = [
     {
@@ -14,6 +15,12 @@ const routes = [
         component: ProfilePage,
         meta: {
             title: "Profile"
+        }
+    },{
+        path: '/About',
+        component: AboutPage,
+        meta: {
+            title: "About"
         }
     },
 
